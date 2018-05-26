@@ -12,7 +12,7 @@ fbt:::entry
   printf("%x %x %x",arg0, arg1, arg2);
 }
 
-fbt::open:entry
+fbt::task_for_pid:entry
 / self->tracing /
 { 
   printf("PID %d (%s) is opening \n", ((proc_t)arg0)->p_pid, ((proc_t)arg0)->p_comm);
