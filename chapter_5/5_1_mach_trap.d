@@ -1,7 +1,7 @@
 #!/usr/sbin/dtrace -s
 
 
-mach_trap::clock_sleep_trap:entry{
+mach_trap::task_for_pid:entry{
   self->tracing = 1;
   printf("file at: %x opened with mode %x", arg0, arg1);
 }
@@ -24,7 +24,7 @@ fbt:::return
   printf("Returned %x\n",arg1);
 }
 
-mach_trap::clock_sleep_trap:return
+mach_trap::task_for_pid:return
 / self->tracing / 
 {
   self->tracing=0;

@@ -1,7 +1,8 @@
 #!/usr/sbin/dtrace -s
 
 
-syscall::open:entry{
+syscall::open:entry
+{
   self->tracing = 1;
   printf("file at: %x opened with mode %x", arg0, arg1);
 }
@@ -15,7 +16,7 @@ fbt:::entry
 fbt::open:entry
 / self->tracing /
 { 
-  printf("PID %d (%s) is opening \n", ((proc_t)arg0)->p_pid, ((proc_t)arg0)->p_comm);
+  printf("PID %d (%s) is opening , the father process's pid is %d\n", ((proc_t)arg0)->p_pid, ((proc_t)arg0)->p_comm, ((proc_t)arg0)->p_ppid);
 }
 
 fbt:::return 
@@ -24,7 +25,7 @@ fbt:::return
   printf("Returned %x\n",arg1);
 }
 
-mach_trap::open:return
+syscall::open:return
 / self->tracing / 
 {
   self->tracing=0;
