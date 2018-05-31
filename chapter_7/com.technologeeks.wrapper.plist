@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.technologeeks.wrapper</string>
+	<key>Program</key>
+	<string>/Users/peterpan/Public/MOXil_learing/chapter_7/a.out</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/sbin/launchd</string>
+	</array>
+	<key>Sockets</key>
+	<dict>
+		<key>Listeners</key>
+		<dict>
+			<key>SockServiceName</key>
+			<string>1024</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
