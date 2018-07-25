@@ -8,6 +8,7 @@ int main(){
   //hp只是用来接受那个拿到的特权端口,只要当前是特权用户，用的h也是一样的效果
   rc = host_get_host_priv_port(h, &hp);
   if(rc == KERN_SUCCESS) host_reboot(h,0);
+  printf("%d", rc);
   printf("sorry\n");
   return 0;
 }
